@@ -1,18 +1,45 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.6</version>
+    <relativePath/>
+  </parent>
 
   <groupId>com.tiger</groupId>
-  <artifactId>tigerspringcloud</artifactId>
+  <artifactId>tiger_springcloud</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>tiger_eureka_server</module>
+    <module>tiger_eureka_client</module>
+    <module>tiger_gateway</module>
+  </modules>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <name>tigerspringcloud</name>
+  <name>tiger_cloud Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
   <properties>
+    <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <spring-cloud.version>2023.0.1</spring-cloud.version>
   </properties>
+
+
+  <!--父工程引入springcloud配置-->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -22,4 +49,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+    <finalName>tiger_cloud</finalName>
+  </build>
 </project>
