@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: tiger_eureka_client
+server:
+  port: 8200
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8100/tiger_eureka/eureka/
+  server:
+    enable-self-preservation: false
