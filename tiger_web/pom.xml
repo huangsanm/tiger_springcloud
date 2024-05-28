@@ -7,27 +7,17 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tiger_gateway</artifactId>
+    <artifactId>tiger_web</artifactId>
     <packaging>jar</packaging>
 
-    <name>tiger_gateway</name>
+    <name>tiger_web</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <compile.version>17</compile.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

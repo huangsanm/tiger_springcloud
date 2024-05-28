@@ -15,6 +15,8 @@
     <module>tiger_eureka_server</module>
     <module>tiger_eureka_client</module>
     <module>tiger_gateway</module>
+    <module>tiger_admin</module>
+      <module>tiger_web</module>
   </modules>
   <version>1.0-SNAPSHOT</version>
   <name>tiger_cloud Maven Webapp</name>
