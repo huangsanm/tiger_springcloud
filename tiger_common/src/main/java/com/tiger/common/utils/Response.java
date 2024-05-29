@@ -1,6 +1,9 @@
 package com.tiger.common.utils;
 
 import cn.hutool.core.util.StrUtil;
+
+import java.io.Serializable;
+
 /**
  * @Author: achilles
  * @Date: 2024/5/27
@@ -8,7 +11,7 @@ import cn.hutool.core.util.StrUtil;
  * @Remark:
  */
 
-public class Response {
+public class Response implements Serializable {
 
     //消息代码
     private Integer code;
@@ -16,6 +19,8 @@ public class Response {
     private Object data;
     //接口返回提示
     private String message;
+
+    public Response(){}
 
     public static Response of(int code){
         return new Response(code);

@@ -13,11 +13,23 @@ spring:
           predicates:
             - Path=/admin095ce/**
           filters:
-            - name: RouteFilterFactory
+            - name: AdminFilterFactory
               args:
                 requestHeaderTokenName: token
                 adminHeaderTokenName: admin_token
                 enabled: true
+        - id: tiger_app
+          uri: http://127.0.0.1:8500
+          predicates:
+            - Path=/appokqche/**
+          filters:
+            - name: AppFilterFactory
+              args:
+                fromRequestHeaderToken: token
+                toAppHeaderToken: authToken
+
+
+
 
 server:
   port: 8300

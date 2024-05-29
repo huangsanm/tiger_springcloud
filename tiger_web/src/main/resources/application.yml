@@ -6,10 +6,10 @@ spring:
       exclude: WEB-INF,META-INF
       log-condition-evaluation-delta: false
   application:
-    name: tigerAdmin
+    name: tigerApp
 
 server:
-  port: 8400
+  port: 8500
 
 eureka:
   instance:
@@ -21,14 +21,16 @@ eureka:
   server:
     enable-self-preservation: false
 
-
 #负载均衡
-tiger_admin:
+tigerApp:
   ribbon:
     eureka:
       enabled: true
     ConnectTimeout: 3000
     ReadTimeout: 3000
+    MaxAutoRetries: 1
+    MaxAutoRetriesNextServer: 1
+    OkToRetryOnAllOperations: true
     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
     #可以根据负载策略自行实现逻辑
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

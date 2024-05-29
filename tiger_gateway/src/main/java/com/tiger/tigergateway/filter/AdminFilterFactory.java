@@ -19,10 +19,10 @@ import java.util.function.Consumer;
  * 路由拦截器
  */
 @Component
-public class RouteFilterFactory extends AbstractGatewayFilterFactory<RouteFilterFactory.RouteConfig> {
+public class AdminFilterFactory extends AbstractGatewayFilterFactory<AdminFilterFactory.RouteConfig> {
 
 
-    public RouteFilterFactory() {
+    public AdminFilterFactory() {
         super(RouteConfig.class);
     }
 
