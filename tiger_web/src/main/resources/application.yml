@@ -34,3 +34,15 @@ tigerApp:
     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
     #可以根据负载策略自行实现逻辑
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+xxl.job:
+  admin:
+    addresses: http://127.0.0.1:8080/xxl-job-admin
+  accessToken: default_token
+  executor:
+    appName: tigerAppGame
+    address:
+    ip:
+    port:
+    logpath: /Users/huangsanming/Downloads/
+    logretentiondays: 1
