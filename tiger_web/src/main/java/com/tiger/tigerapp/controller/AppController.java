@@ -2,8 +2,10 @@ package com.tiger.tigerapp.controller;
 
 import cn.hutool.core.lang.UUID;
 import com.alibaba.fastjson2.JSONObject;
+import com.netflix.ribbon.Ribbon;
 import com.tiger.common.utils.Response;
 import com.tiger.tigerapp.service.AppFeignClientService;
+import com.tiger.tigerapp.service.RibbonService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import org.springframework.web.client.RestTemplate;
 public class AppController {
 
     @Resource
-    AppFeignClientService appFeignClientService;
+    RibbonService ribbonService;
 
     @GetMapping("testBalance")
     public Response testBalance(){
@@ -47,7 +49,12 @@ public class AppController {
 
     @GetMapping("getWebData")
     public Response getWebData(){
-        return appFeignClientService.getAdminData();
+        return ribbonService.getAdminData();
+    }
+
+    @GetMapping("getWebData2")
+    public Response getWebData2(){
+        return ribbonService.getAdminData2();
     }
 
 

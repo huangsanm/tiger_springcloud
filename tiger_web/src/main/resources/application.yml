@@ -35,6 +35,26 @@ tigerApp:
     #可以根据负载策略自行实现逻辑
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
+#降级熔断
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+  threadpool:
+    default:
+      coreSize: 10
+      maxQueueSize: -1
+
+#监控
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: tigerApp
+  clusterNameExpression: new String("default")
+
 xxl.job:
   admin:
     addresses: http://127.0.0.1:8080/xxl-job-admin
