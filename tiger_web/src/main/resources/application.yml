@@ -62,7 +62,7 @@ xxl.job:
   executor:
     appName: tigerAppGame
     address:
-    ip:
-    port:
+    ip: 127.0.0.1
+    port: 8100
     logpath: /Users/huangsanming/Downloads/
     logretentiondays: 1
