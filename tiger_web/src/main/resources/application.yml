@@ -17,9 +17,7 @@ eureka:
     instance-id: ${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8100/tiger_eureka/eureka/
-  server:
-    enable-self-preservation: false
+      defaultZone: http://ClusterA:8101/eureka/,http://ClusterB:8103/eureka/,http://Cluster:8100/eureka/
 
 #负载均衡
 tigerApp:

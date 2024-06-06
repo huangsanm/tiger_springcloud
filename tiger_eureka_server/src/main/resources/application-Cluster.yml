@@ -1,0 +1,21 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: tigerEurekaCluster
+
+eureka:
+  instance:
+    hostname: Cluster
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    healthcheck:
+      enabled: true
+    #由于注册中心的职责就是维护服务实例，它并不需要去检索服务
+    fetch-registry: false
+    #不向注册中心注册自己
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://ClusterA:8101/eureka/,http://ClusterB:8103/eureka/
+

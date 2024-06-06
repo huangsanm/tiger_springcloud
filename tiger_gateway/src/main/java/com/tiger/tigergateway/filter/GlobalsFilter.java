@@ -6,7 +6,9 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -35,7 +37,13 @@ public class GlobalsFilter implements GlobalFilter, Ordered {
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        String clientIp = exchange.getRequest().getRemoteAddress().getAddress().getHostAddress();
+        ServerHttpRequest request = exchange.getRequest();
+        MultiValueMap<String, String> params =  request.getQueryParams();
+        params.forEach((k, v) -> {
+            System.out.println(k + ":" + v);
+        });
+
+        String clientIp = request.getRemoteAddress().getAddress().getHostAddress();
         System.out.println("全局拦截器:" + clientIp);
         if (blackIpList.contains(clientIp)) {
             exchange.getResponse().setStatusCode(HttpStatus.FORBIDDEN);

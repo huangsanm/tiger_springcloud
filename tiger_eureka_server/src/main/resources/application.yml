@@ -1,22 +1,12 @@
-server:
-  port: 8100
-  servlet:
-    context-path: /tiger_eureka
-
 spring:
   application:
     name: tiger_eureka
+  profiles:
+    active: Cluster
 
-eureka:
-  instance:
-    hostname: 127.0.0.1
-  client:
-    healthcheck:
-      enabled: true
-    fetch-registry: false
-    register-with-eureka: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/${spring.application.name}/eureka/
-  server:
-    enable-self-preservation: true
-
+security:
+  basic:
+    enabled: true
+  user:
+    name: tigerapp
+    password: tigapp9wufu2nd
